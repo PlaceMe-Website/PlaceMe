@@ -1,5 +1,12 @@
-import { promises as fs } from 'fs';
+import {promises} from 'fs';
 import {Emoji} from 'emoji-type';
+// import Image from 'next/image'
+import Typography from '@mui/material/Typography';
+
+import { Item } from "@/theme";
+import { Box, Grid, Stack } from "@mui/material";
+import theme from '@/theme';
+
 
 interface DataObj {
   id: number;
@@ -12,55 +19,57 @@ interface DataObj {
   body: string;
 }
 
+
 const icon: Emoji = "⭐";
 
+
 export default async function Results() {
-  const file = await fs.readFile(process.cwd() + '/app/db.json', 'utf8');
+  const file = await promises.readFile(process.cwd() + '/src/app/db.json', 'utf8');
   const db = JSON.parse(file);
   console.log(db.neighbourhoods);
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-9">
 
-      <h1 className="mt-1">Your search results:</h1>
 
-      <div className="relative flex mb-32 grid text-center lg:max-w-5xl lg:max-h-5xl lg:w-full lg:mb-0 lg:grid-cols-2 lg:text-left justify-between p-9 gap-x-5 gap-y-5">
-        {
+    <Box display="flex" justifyContent="right" alignItems="right">
+      <Typography variant='h4' justifyContent="center">Here are your search results:</Typography>
+      <Grid item container spacing={3} alignItems="center" columns={2} padding={5} width={500}>
+      {
           db.neighbourhoods.map((data: DataObj) => (
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              className="group rounded-lg border border-black px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-              target="_blank"
-              rel="noopener noreferrer"
-              
-            >
-            <h2 className={`mb-3 text-2xl font-semibold`}>
-              {data.title}{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-              <img
-                src={data.link}
-                className="float-right relative right-2 w-40 h-40"
-                alt="NBHD-Image"
-              ></img>
-              <p className={`m-0 max-w-[25ch] text-sm opacity-60`}>
-                {data.body.length > 150 ? data.body.substring(0, 150) + "..." : data.body}
-              </p>
-              
-              <p className={`m-0 text-sm justify-between p-1`}>Avg. House Price: ${data.price}k</p> 
-              <p className={`m-0 text-sm justify-between p-1`}>Crimes last year: {data.crime}</p>
-              <p className={`m-0 text-sm justify-between p-1`}>Convenience Score: {data.conv}</p> 
-              <p className={`m-0 text-sm justify-between p-1`}>Rating: {data.rating} {icon} </p>
-            </a>
-            
+            <Grid item xs={2} key={data.id}>
+              <Item>
+                <Typography variant='h6'>
+                  {data.title}{" "}
+                  <span>
+                    -&gt;
+                  </span>
+                </Typography>   
+
+                <Box
+                  component="img"
+                  sx={{
+                    margin: 'auto'
+                  }}
+                  display="flex"
+                  justifyContent="flex-end"
+                  alt="NBHD Image"
+                  src={"https://images.adsttc.com/media/images/5f2b/25d0/b357/6508/c500/03e3/newsletter/Romainville_by_Sergio_Grazia.jpg?1596663236"}
+                  width={200}
+                  height={200}
+                />
+                  <Typography variant='body2'>
+                    {data.body.length > 150 ? data.body.substring(0, 50) + "..." : data.body}
+                  </Typography>
+                  <hr>
+                  </hr>
+                  <Typography variant='body2'>Avg. House Price: ${data.price}k</Typography> 
+                  <Typography variant='body2'>Crimes last year: {data.crime}</Typography> 
+                  <Typography variant='body2'>Convenience Score: {data.conv}</Typography> 
+                  <Typography variant='body2'>Rating: {data.rating} {icon}</Typography> 
+              </Item>
+            </Grid>
           ))
         }
-        
-
-      </div>
-    </main>
-    
+      </Grid>
+    </Box>
   );
 }
