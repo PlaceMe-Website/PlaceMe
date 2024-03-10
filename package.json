@@ -10,12 +10,14 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
-    "@mui/material-nextjs": "latest",
+    "@mui/material-nextjs": "^5.15.11",
+    "emoji-type": "^1.0.4",
+    "fs": "^0.0.1-security",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
