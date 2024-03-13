@@ -1,5 +1,4 @@
-import { Box, IconButton, TextField, Button, Autocomplete } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { TextField, Autocomplete } from "@mui/material";
 import React, { useState } from "react";
 import { ItemType } from "@/app/dashboard/search/page";
 import parse from 'autosuggest-highlight/parse';

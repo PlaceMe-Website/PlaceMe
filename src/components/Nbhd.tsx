@@ -1,6 +1,6 @@
 import { ItemType } from "@/app/dashboard/search/page";
 import { Item } from "@/theme";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 type Props = {
