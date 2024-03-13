@@ -18,7 +18,7 @@ export type ItemType = {
   body: string;
 };
 
-export default function page({}: Props) {
+export default function Page({}: Props) {
   const [search, setSearch] = useState<string>("");
   const [results, setResults] = useState<ItemType[]>(data.neighbourhoods);
 
