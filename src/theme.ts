@@ -59,6 +59,7 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 let theme = createTheme(themeOptions)
+
 theme = responsiveFontSizes(theme)
 
 export default theme;
