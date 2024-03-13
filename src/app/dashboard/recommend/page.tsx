@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Item } from "@/theme";
 import { Box, Grid, Stack } from "@mui/material";
 import theme from "@/theme";
-import SearchCard from "../search/components/searchCard";
+import SearchCard from "../../../components/searchCard";
 import { ItemType } from "../search/page";
 
 const icon: Emoji = "⭐" as Emoji;

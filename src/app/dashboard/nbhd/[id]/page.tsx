@@ -1,7 +1,7 @@
 import React from "react";
-import data from "@/app/dashboard/recommend/db.json";
-import SearchCard from "../../search/components/searchCard";
-import Nbhd from "./components/Nbhd";
+import data from "../../../../data/db.json"
+import Nbhd from "../../../../components/Nbhd";
+
 
 export default function page({ params }: { params: { id: string } }) {
   const neighbourshoods = data.neighbourhoods;

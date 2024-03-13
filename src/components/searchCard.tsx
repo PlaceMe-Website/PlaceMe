@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Item } from "@/theme";
 import { Box, Grid, Stack } from "@mui/material";
 import theme from "@/theme";
-import { ItemType } from "../page";
+import { ItemType } from "../app/dashboard/search/page";
 import Link from "next/link";
 
 type Props = {

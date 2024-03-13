@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 
-import SearchBar from "./components/searchBar";
+import SearchBar from "../../../components/searchBar";
 import { Box } from "@mui/material";
-import data from "./db.json";
-import SearchCard from "./components/searchCard";
+import data from "../../../data/db.json"
+import SearchCard from "../../../components/searchCard";
 
 type Props = {};
 export type ItemType = {
