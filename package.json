@@ -16,6 +16,8 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/material-nextjs": "^5.15.11",
+    "@types/autosuggest-highlight": "^3.2.3",
+    "autosuggest-highlight": "^3.3.4",
     "emoji-type": "^1.0.4",
     "fs": "^0.0.1-security",
     "next": "latest",

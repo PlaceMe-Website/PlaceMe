@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import data from "../../../data/db.json"
 import SearchCard from "../../../components/searchCard";
 
+
 type Props = {};
 export type ItemType = {
   id: number;
@@ -20,7 +21,7 @@ export type ItemType = {
 
 export default function Page({}: Props) {
   const [search, setSearch] = useState<string>("");
-  const [results, setResults] = useState<ItemType[]>(data.neighbourhoods);
+  const results = data.neighbourhoods;
 
   return (
     <Box
@@ -29,17 +30,15 @@ export default function Page({}: Props) {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      <SearchBar search={search} setSearch={setSearch} />
+      <SearchBar items={results} setSearch={setSearch}/>
       <Box 
         display={"flex"} 
         justifyContent={"center"} 
         sx={{flexGrow: 1, gap: '1rem', alignItems: "center"}}
       >
-        {results
-          .filter((item) => item.title.startsWith(search))
-          .map((item: ItemType) => (
+        {results.filter((item) => {return item.title.toLowerCase().includes(search.toLowerCase())}).sort((item1, item2) => {return item1.title.localeCompare(item2.title)}).map((item: ItemType) => (
             <SearchCard key={item.id} item={item} />
-          ))}
+        ))}
       </Box>
     </Box>
   );
