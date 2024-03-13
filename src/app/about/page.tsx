@@ -24,7 +24,7 @@ export default function About() {
           <Button variant="contained" component={NextLink} href="/">
             Go to the home page
           </Button>
-        </Box>
+</Box>
       </Box>
     </Container>
   );
