@@ -1,6 +1,6 @@
 import { ItemType } from "@/app/dashboard/search/page";
 import { Item } from "@/theme";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 type Props = {
@@ -10,8 +10,8 @@ type Props = {
 const Nbhd = ({ item }: Props) => {
   return (
     <Item>
-      <Typography variant="h6">
-        {item.title} <span>-&gt;</span>
+      <Typography variant="h3">
+        {item.title}
       </Typography>
 
       <Box
@@ -23,9 +23,10 @@ const Nbhd = ({ item }: Props) => {
         justifyContent="flex-end"
         alt="NBHD Image"
         src={
-          "https://images.adsttc.com/media/images/5f2b/25d0/b357/6508/c500/03e3/newsletter/Romainville_by_Sergio_Grazia.jpg?1596663236"
+          item.link
         }
-        width={"100%"}
+        width={800}
+        height={"auto"}
       />
       <Typography variant="body2">{item.body}</Typography>
       <hr></hr>

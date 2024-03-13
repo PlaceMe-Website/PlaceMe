@@ -1,15 +1,54 @@
 'use client';
-import { Roboto } from 'next/font/google';
-import { createTheme } from '@mui/material/styles';
+import { Inter } from 'next/font/google';
+import { ThemeOptions, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 
-const roboto = Roboto({
+const inter = Inter({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
 });
+
+export const themeOptions: ThemeOptions = {
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#ed7d31',
+    },
+    secondary: {
+      main: '#6c5f5b',
+    },
+    background: {
+      default: '#f6f1ee',
+    },
+    info: {
+      main: '#ed8231',
+    },
+    text: {
+      primary: '#4f4a45',
+    },
+  },
+  typography: {
+    fontFamily: inter.style.fontFamily,
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          background: 'linear-gradient(45deg, #ED7D31 30%, #F6F1EE 90%)',
+          border: 0,
+          borderRadius: 3,
+          boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+          color: 'black',
+          height: 48,
+          padding: '0 30px',
+        },
+      },
+    },
+  },
+};
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,30 +58,8 @@ export const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+let theme = createTheme(themeOptions)
 
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
-  components: {
-    MuiAlert: {
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          ...(ownerState.severity === 'info' && {
-            backgroundColor: '#60a5fa',
-          }),
-        }),
-      },
-    },
-  },
-  
-});
-
-
-
-
+theme = responsiveFontSizes(theme)
 
 export default theme;
