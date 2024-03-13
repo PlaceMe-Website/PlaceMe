@@ -30,7 +30,11 @@ export default function page({}: Props) {
       alignItems={"center"}
     >
       <SearchBar search={search} setSearch={setSearch} />
-      <Box display={"flex"} flexDirection={"row"}>
+      <Box 
+        display={"flex"} 
+        justifyContent={"center"} 
+        sx={{flexGrow: 1, gap: '1rem', alignItems: "center"}}
+      >
         {results
           .filter((item) => item.title.startsWith(search))
           .map((item: ItemType) => (
