@@ -12,7 +12,7 @@ type Props = {
 
 const SearchCard = ({ item }: Props) => {
   return (
-    <Card sx={{ maxWidth: 345 }} key={item.id}>
+    <Card sx={{ maxWidth: 250 }} key={item.id}>
     <CardActionArea href={`nbhd/${item.id}`} LinkComponent={'a'}>
       <CardMedia
         component="img"
@@ -23,7 +23,7 @@ const SearchCard = ({ item }: Props) => {
           {item.title}
         </Typography>
         <Typography variant="body2" color="secondary">
-          {item.body}
+          {(item.body.length > 100) ? item.body.substring(0, 100)+"..." : item.body}
         </Typography>
         <hr></hr>
         <Typography variant="body2">
