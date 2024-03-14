@@ -18,7 +18,7 @@ export default async function Results() {
       justifyContent={"center"} 
       sx={{flexGrow: 1, gap: '1rem', alignItems: "center"}}
     >
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justifyContent={"center"}>
         {db.neighbourhoods.map((item: ItemType) => (
           <SearchCard key={item.id} item={item} />
         ))}

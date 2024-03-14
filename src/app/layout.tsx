@@ -4,6 +4,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import { Metadata } from "next";
+import PageWrapper from "@/components/PageWrapper";
+import { Toolbar } from "@mui/material";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -12,7 +14,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {props.children}
+            <PageWrapper>
+              <Toolbar />
+              {props.children}
+            </PageWrapper>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
