@@ -7,8 +7,10 @@ import { Grid } from "@mui/material";
 import data from "../../../data/db.json";
 import PriorityList from "@/components/PriorityList"; 
 import dynamic from 'next/dynamic';
+import { useState } from "react";
+import { setPriority } from "os";
 
-let priorityList = {
+const list = {
   id: "priority-list",
   title: "Set NBHD Priorities",
   priorityIds: ["crime", "price", "convenience"]
@@ -24,6 +26,7 @@ const DragDropContext = dynamic(
 
 
 export default async function Results() {
+  const [priorityList, setPriorityList] = useState(list);
   const onDragEnd = (result: any) => {
     const { destination, source, draggableId } = result;
     if (!destination) return;
@@ -41,7 +44,9 @@ export default async function Results() {
       ...priorityList,
       priorityIds: newPriorityIds
     }
+    setPriorityList(newPriorityList);
   }
+  
   return (
     <Box>
       
