@@ -8,7 +8,6 @@ import data from "../../../data/db.json";
 import PriorityList from "@/components/PriorityList"; 
 import dynamic from 'next/dynamic';
 import { useState } from "react";
-import { setPriority } from "os";
 
 const list = {
   id: "priority-list",
