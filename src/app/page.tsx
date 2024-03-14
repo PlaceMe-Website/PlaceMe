@@ -1,15 +1,13 @@
 import Copyright from "@/components/Copyright";
+import { Typography, Box } from "@mui/material";
 import Head from "next/head";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Landing page</title>
-      </Head>
-      <footer>
-        <Copyright />
-      </footer>
-    </>
+    <Box sx={{height: "100vh"}}>
+      <Typography>
+        Hi Main Page.
+      </Typography>
+    </Box>
   )
 }
