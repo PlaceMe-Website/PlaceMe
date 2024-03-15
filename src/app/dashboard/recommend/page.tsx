@@ -3,7 +3,7 @@
 import { Box } from "@mui/material";
 import SearchCard from "../../../components/searchCard";
 import { ItemType } from "../search/page";
-import { Grid } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import data from "../../../data/db.json";
 import PriorityList from "@/components/PriorityList"; 
 import dynamic from 'next/dynamic';
@@ -44,16 +44,14 @@ export default function Results() {
       priorityIds: newPriorityIds
     }
     setPriorityList(newPriorityList);
-    console.log(priorityList);
   }
   
   return (
     <Box>
-      
-        <DragDropContext onDragEnd={onDragEnd}>
-          <PriorityList title={priorityList.title} priorityIds={priorityList.priorityIds}/>
-        </DragDropContext>
-      
+      <DragDropContext onDragEnd={onDragEnd}>
+        <PriorityList title={priorityList.title} priorityIds={priorityList.priorityIds}/>
+      </DragDropContext>
+
       <Box 
         display="flex" 
         justifyContent="right" 

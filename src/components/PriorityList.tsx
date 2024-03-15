@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Typography } from '@mui/material'
+import { Typography, Button } from '@mui/material'
 import Priority from './Priority'
 import dynamic from 'next/dynamic'
 // import { Droppable } from 'react-beautiful-dnd'
@@ -10,7 +10,7 @@ const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
   border-radius: 2px;
-  max-width: 600px
+  max-width: 600px;
 `;
 
 const List = styled.div`
@@ -41,7 +41,9 @@ const PrioritiesList = (props: { title: string, priorityIds: Array<string> }) =>
           </List>
         )}
       </Droppable>
-      
+      <Button variant="contained" size="large" onClick={() => console.log(props.priorityIds)}>
+          Submit
+      </Button>
     </Container>
   )
 }
