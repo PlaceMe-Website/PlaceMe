@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const list = {
   id: "priority-list",
-  title: "Set NBHD Priorities",
+  title: "Sort",
   priorityIds: ["crime", "price", "convenience"]
 }
 
@@ -52,17 +52,11 @@ export default function Results() {
         <PriorityList title={priorityList.title} priorityIds={priorityList.priorityIds}/>
       </DragDropContext>
 
-      <Box 
-        display="flex" 
-        justifyContent="right" 
-        sx={{flexGrow: 1, gap: '1rem', alignItems: "center  ", marginTop: '1rem', marginRight: '1rem'}}
-      >
-        <Grid container justifyContent="right" maxWidth={600} sx={{gap: '1rem'}}>
+        <Grid container justifyContent="left" sx={{gap: '1rem', flexGrow: 1}}>
           {data.neighbourhoods.map((item: ItemType) => (
             <SearchCard key={item.id} item={item}/>
           ))}
         </Grid>
-      </Box>
     </Box>
   );
 }

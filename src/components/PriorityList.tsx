@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Typography, Button } from '@mui/material'
+import { Typography, Button, alpha } from '@mui/material'
 import Priority from './Priority'
 import dynamic from 'next/dynamic'
-// import { Droppable } from 'react-beautiful-dnd'
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+
+
 
 
 const Container = styled.div`
@@ -41,8 +43,8 @@ const PrioritiesList = (props: { title: string, priorityIds: Array<string> }) =>
           </List>
         )}
       </Droppable>
-      <Button variant="contained" size="large" onClick={() => console.log(props.priorityIds)}>
-          Submit
+      <Button variant='contained' sx={{minWidth: "unset", p: "8px 14px", minHeight: "unset", backgroundColor: "#5cb85c", color: "white", "&:hover": {backgroundColor: alpha("#5cb85c", 0.75)}}}>
+        <DoneAllIcon />
       </Button>
     </Container>
   )
