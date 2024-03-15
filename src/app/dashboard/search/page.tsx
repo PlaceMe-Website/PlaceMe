@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
-
-import SearchBar from "../../../components/searchBar";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import data from "../../../data/db.json"
-import SearchCard from "../../../components/searchCard";
+import Dnd from "@/components/Dnd";
+import SearchCard from "@/components/searchCard";
+import SearchBar from "@/components/searchBar";
+
 
 
 type Props = {};
@@ -24,22 +25,28 @@ export default function Page({}: Props) {
   const results = data.neighbourhoods;
 
   return (
-    <Box
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"center"}
-      alignItems={"center"}
-    >
-      <SearchBar items={results} setSearch={setSearch}/>
-      <Box 
-        sx={{flexGrow: 1, gap: '1rem', alignItems: "center", marginTop: '2rem'}}
-      >
-        <Grid container spacing={2} justifyContent={"center"} maxWidth={1200} gap={2}>
-          {results.filter((item) => {return item.title.toLowerCase().includes(search.toLowerCase())}).sort((item1, item2) => {return item1.title.localeCompare(item2.title)}).map((item: ItemType) => (
-              <SearchCard key={item.id} item={item} />
-          ))}
-        </Grid>
+    <Stack display={"flex"} flexDirection={"row"}>
+      <Box sx={{mx: 2}}>
+        <SearchBar items={results} setSearch={setSearch}/>
+        <Dnd />
       </Box>
-    </Box>
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"left"}
+        alignItems={"center"}
+        alignContent={"center"}
+      >
+        <Box 
+          sx={{flexGrow: 1, gap: '1rem', alignItems: "center", m: 4}}
+        >
+          <Grid container spacing={2} justifyContent={"center"} maxWidth={1200} gap={2}>
+            {results.filter((item) => {return item.title.toLowerCase().includes(search.toLowerCase())}).sort((item1, item2) => {return item1.title.localeCompare(item2.title)}).map((item: ItemType) => (
+                <SearchCard key={item.id} item={item} />
+            ))}
+          </Grid>
+        </Box>
+      </Box>
+    </Stack>
   );
 }
