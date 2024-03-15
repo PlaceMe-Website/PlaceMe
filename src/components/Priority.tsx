@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled';
 import dynamic from 'next/dynamic';
-// import { Draggable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
 
 const Container = styled.div`
@@ -9,7 +8,8 @@ const Container = styled.div`
   padding: 8px;
   margin-bottom: 8px; 
   borderRadius: 2px;
-  background-color: white;
+  color: white;
+  background-color: #ed7d31;
 `;
 
 const Draggable = dynamic(
@@ -21,7 +21,6 @@ const Draggable = dynamic(
 );
 
 const Priority = (props: {id: string, index: number}) => {
-  console.log(props)
   const id = uuidv4();
   return (
     <Draggable key={props.id} draggableId={props.id} index={props.index}>

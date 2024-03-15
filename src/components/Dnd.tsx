@@ -1,18 +1,13 @@
 "use client"
 
-import { Box } from "@mui/material";
-import SearchCard from "../../../components/searchCard";
-import { ItemType } from "../search/page";
-import { Grid, Button } from "@mui/material";
-import data from "../../../data/db.json";
 import PriorityList from "@/components/PriorityList"; 
 import dynamic from 'next/dynamic';
 import { useState } from "react";
 
 const list = {
   id: "priority-list",
-  title: "Set NBHD Priorities",
-  priorityIds: ["crime", "price", "convenience"]
+  title: "Sort",
+  priorityIds: ["Crime", "Price", "Convenience"]
 }
 
 const DragDropContext = dynamic(
@@ -24,7 +19,7 @@ const DragDropContext = dynamic(
 );
 
 
-export default function Results() {
+const Dnd = () => {
   const [priorityList, setPriorityList] = useState(list);
   const onDragEnd = (result: any) => {
     const { destination, source, draggableId } = result;
@@ -47,22 +42,10 @@ export default function Results() {
   }
   
   return (
-    <Box>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <PriorityList title={priorityList.title} priorityIds={priorityList.priorityIds}/>
-      </DragDropContext>
-
-      <Box 
-        display="flex" 
-        justifyContent="right" 
-        sx={{flexGrow: 1, gap: '1rem', alignItems: "center  ", marginTop: '1rem', marginRight: '1rem'}}
-      >
-        <Grid container justifyContent="right" maxWidth={600} sx={{gap: '1rem'}}>
-          {data.neighbourhoods.map((item: ItemType) => (
-            <SearchCard key={item.id} item={item}/>
-          ))}
-        </Grid>
-      </Box>
-    </Box>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <PriorityList title={priorityList.title} priorityIds={priorityList.priorityIds}/>
+    </DragDropContext>
   );
 }
+
+export default Dnd
