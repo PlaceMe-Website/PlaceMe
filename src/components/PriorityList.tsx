@@ -26,6 +26,7 @@ const Container = styled(Stack)(() => ({
 const List = styled.div`
   padding: 9px;
   font-weight: bold;
+  border-radius: 20px;
 `;
 
 const Droppable = dynamic(
