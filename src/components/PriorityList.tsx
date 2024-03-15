@@ -43,7 +43,19 @@ const PrioritiesList = (props: { title: string, priorityIds: Array<string> }) =>
           </List>
         )}
       </Droppable>
-      <Button variant='contained' sx={{minWidth: "unset", p: "8px 14px", minHeight: "unset", backgroundColor: "#5cb85c", color: "white", "&:hover": {backgroundColor: alpha("#5cb85c", 0.75)}}}>
+      <Button 
+        variant='contained' 
+        sx={{
+          minWidth: "unset", 
+          p: "8px 14px", 
+          minHeight: "unset",
+          backgroundColor: "#5cb85c",
+          color: "white",
+          "&:hover": {backgroundColor: alpha("#5cb85c", 0.75)}
+        }}
+        onClick={(e) => {console.log(props.priorityIds)}}
+        
+      >
         <DoneAllIcon />
       </Button>
     </Container>
