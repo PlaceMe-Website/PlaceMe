@@ -8,7 +8,8 @@ const Container = styled.div`
   padding: 8px;
   margin-bottom: 8px; 
   borderRadius: 2px;
-  background-color: white;
+  color: white;
+  background-color: #ed7d31;
 `;
 
 const Draggable = dynamic(

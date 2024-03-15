@@ -1,22 +1,31 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Typography, Button, alpha } from '@mui/material'
+import { Typography, Button, alpha, Stack, IconButton, Tooltip } from '@mui/material'
 import Priority from './Priority'
 import dynamic from 'next/dynamic'
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+import HelpIcon from '@mui/icons-material/Help';
+
+const Container = styled(Stack)(() => ({
+  border: "2px solid lightgrey",
+  borderRadius: "2px",
+  maxWidth: "600px",
+  display: "flex",
+  flexDirection: "column",
+  backgroundColor: "#D2691E",
+}))
 
 
 
-
-const Container = styled.div`
-  margin: 8px;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  max-width: 600px;
-`;
+// const Container = styled.div`
+//   border: 2px solid lightgrey;
+//   border-radius: 2px;
+//   max-width: 600px;
+// `;
 
 const List = styled.div`
-  padding: 8px;
+  padding: 9px;
+  font-weight: bold;
 `;
 
 const Droppable = dynamic(
@@ -30,7 +39,11 @@ const Droppable = dynamic(
 const PrioritiesList = (props: { title: string, priorityIds: Array<string> }) => {
   return (
     <Container>
-      <Typography variant='h5' sx={{padding: "8px"}}>{props.title}</Typography>
+      <Tooltip title="Drag and Drop to meet your preferences!" placement="right">
+        <IconButton sx={{color: "#5cb85c", px: "1px"}}>
+          <HelpIcon />
+        </IconButton>
+      </Tooltip>
       <Droppable droppableId={props.title}>
         {(provided) => (
           <List 

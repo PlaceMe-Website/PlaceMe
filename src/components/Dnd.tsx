@@ -12,7 +12,7 @@ import { useState } from "react";
 const list = {
   id: "priority-list",
   title: "Sort",
-  priorityIds: ["crime", "price", "convenience"]
+  priorityIds: ["Crime", "Price", "Convenience"]
 }
 
 const DragDropContext = dynamic(
