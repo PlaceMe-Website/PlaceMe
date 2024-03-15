@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Box, Grid, Stack } from "@mui/material";
 import data from "../../../data/db.json"
 import Dnd from "@/components/Dnd";
-import SearchCard from "@/components/searchCard";
-import SearchBar from "@/components/searchBar";
+import SearchCard from "@/components/SearchCard";
+import SearchBar from "@/components/SearchBar";
 
 
 
