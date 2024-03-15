@@ -15,14 +15,6 @@ const Container = styled(Stack)(() => ({
   backgroundColor: "#D2691E",
 }))
 
-
-
-// const Container = styled.div`
-//   border: 2px solid lightgrey;
-//   border-radius: 2px;
-//   max-width: 600px;
-// `;
-
 const List = styled.div`
   padding: 9px;
   font-weight: bold;

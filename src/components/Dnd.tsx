@@ -1,10 +1,5 @@
 "use client"
 
-import { Box } from "@mui/material";
-// import SearchCard from "./searchCard";
-// import { ItemType } from "../app/dashboard/search/page";
-// import { Grid } from "@mui/material";
-// import data from "../data/db.json";
 import PriorityList from "@/components/PriorityList"; 
 import dynamic from 'next/dynamic';
 import { useState } from "react";
