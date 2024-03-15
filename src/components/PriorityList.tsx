@@ -36,7 +36,7 @@ const PrioritiesList = (props: { title: string, priorityIds: Array<string> }) =>
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
-            {props.priorityIds.map((priority, index) => <Priority id={priority} index={index} />)}
+            {props.priorityIds.map((priority, index) => <Priority key={priority} id={priority} index={index} />)}
             {provided.placeholder}
           </List>
         )}

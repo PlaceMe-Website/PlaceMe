@@ -24,7 +24,7 @@ const DragDropContext = dynamic(
 );
 
 
-export default async function Results() {
+export default function Results() {
   const [priorityList, setPriorityList] = useState(list);
   const onDragEnd = (result: any) => {
     const { destination, source, draggableId } = result;
@@ -44,6 +44,7 @@ export default async function Results() {
       priorityIds: newPriorityIds
     }
     setPriorityList(newPriorityList);
+    console.log(priorityList);
   }
   
   return (
